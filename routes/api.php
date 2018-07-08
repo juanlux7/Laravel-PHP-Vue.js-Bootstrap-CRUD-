@@ -27,3 +27,10 @@ Route::post('/createTask' ,[
     'uses' => 'TaskController@store',
     'as' => 'task.store'
     ]);
+
+Route::get('/taskStatus/{id}', [
+
+    'uses' => 'TaskController@changeStatus',
+    'as' => 'task.status' 
+
+]);

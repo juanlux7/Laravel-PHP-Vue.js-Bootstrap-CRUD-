@@ -47349,6 +47349,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -47359,7 +47363,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             tasks: [],
             taskName: '',
-            message: ''
+            message: '',
+            isClicked: false,
+            taskStatus: ''
         };
     },
 
@@ -47389,7 +47395,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.getAllTasks();
                 _this2.message = response.data;
             }).catch(function (error) {
-                //console.log(error.response)
+                console.log(error.response);
+            });
+        },
+        changeTaskStatus: function changeTaskStatus(id) {
+            var _this3 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('http://localhost:8000/api/taskStatus/' + id).then(function (response) {
+                _this3.getAllTasks();
+                _this3.taskStatus = response.data;
+            }).catch(function (error) {
+                console.log(error);
             });
         }
     }
@@ -47411,56 +47427,67 @@ var render = function() {
         [
           _c("div", { staticClass: "card card-default" }, [
             _c("div", { staticClass: "card-header" }, [
-              _vm._v("Task Component")
+              _vm._v("Crea tus tareas pendientes")
             ]),
             _vm._v(" "),
             _vm.message
               ? _c("div", { staticClass: "alert alert-success" }, [
                   _vm._v(
-                    "\n                        " +
+                    "\n                    " +
                       _vm._s(_vm.message) +
-                      "\n                    "
+                      "\n                "
                   )
                 ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("form", { attrs: { action: "", method: "post" } }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.taskName,
-                    expression: "taskName"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  name: "taskName",
-                  placeholder: "escribe tu tarea aqui"
-                },
-                domProps: { value: _vm.taskName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.taskName = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                attrs: { type: "button", value: "crear tarea" },
-                on: {
-                  click: function($event) {
-                    _vm.crearTask()
-                  }
-                }
-              })
-            ])
+              : _vm._e()
           ]),
+          _vm._v(" "),
+          _c("form", { attrs: { action: "", method: "post" } }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.taskName,
+                  expression: "taskName"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                name: "taskName",
+                placeholder: "escribe tu tarea aqui"
+              },
+              domProps: { value: _vm.taskName },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.taskName = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "button", value: "crear tarea" },
+              on: {
+                click: function($event) {
+                  _vm.crearTask()
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Listado de tareas")]),
+          _vm._v(" "),
+          _vm.taskStatus != ""
+            ? _c("div", { staticClass: "alert alert-success" }, [
+                _vm._v(_vm._s(_vm.taskStatus))
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _vm._l(_vm.tasks, function(task) {
             return _c("div", { key: task.id, staticClass: "list-group" }, [
@@ -47469,7 +47496,18 @@ var render = function() {
                 {
                   staticClass:
                     "list-group-item list-group-item-action flex-column align-items-start",
-                  attrs: { href: "#" }
+                  class: [
+                    task.isCompleted
+                      ? "list-group-item-success"
+                      : "list-group-item-danger"
+                  ],
+                  attrs: { href: "@" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.changeTaskStatus(task.id)
+                    }
+                  }
                 },
                 [
                   _c(

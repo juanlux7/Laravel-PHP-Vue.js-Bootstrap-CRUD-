@@ -61,6 +61,32 @@ class TaskController extends Controller
         return response("la tarea fue creada");
     }
 
+    public function changeStatus(Request $request){
+
+        $task = Task::find($request->id);
+
+        if($task->isCompleted == false){
+
+
+        $task->isCompleted = true;
+
+        $task->save();
+        
+        return "tarea marcada como realizada";
+
+
+        }else {
+            $task->isCompleted = false;
+
+            $task->save();
+
+            return "tarea marcada como pendiente";
+        }
+
+
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.

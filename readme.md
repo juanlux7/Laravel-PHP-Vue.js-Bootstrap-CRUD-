@@ -66,6 +66,11 @@ Este es un proyecto creado mediante el framework PHP Laravel (5.6) y el uso de l
 
 Desde Laravel se han declarado rutas api que apuntan a un controller y a un metodo en especifico, el controller es de tipo resource y posee los metodos básicos de un CRUD. Desde Vue se ha realizado una conexion HTTP a las rutas api de laravel mediante el modulo AXIOS, posteriormente se han gestionado las respuestas mediante promises. Ademas se ha hecho uso de lifecycle-hooks para listar las tareas una vez este iniciado el componente. 
 
+Las tareas se pueden colocar como pendientes (en rojo) o como completadas (en verde) simplemente haciendo click en ellas
+
+![alt text](https://user-images.githubusercontent.com/40801686/42422225-6006ff2c-82e2-11e8-8e91-1004b95a5bc2.png)
+
+
 ------------------------------------------------------------------------------------------------------------------------------
 
 

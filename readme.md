@@ -73,3 +73,28 @@ Desde Laravel se han declarado rutas api que apuntan a un controller y a un meto
 This is a project created with the PHP framework Laravel (5.6) and the Vue Javascript library, as well as the bootstrap 4 HTML framework for the grid and the basic components. The project consists in a simple task app, stored in a SQL database (through .env config file and creating a schema in phpmyadmin), and managing the views with template hierarchy thanks to blade (using a master layout and another for displaying the tasks), also i have used a Vue component to perform the CRUD operations (basically, show, create delete and update them).
 
 From Laravel I have declared some api routes that point to an controller and a specific method inside of it, that controller is a resource controller and it has the necessary methods of a CRUD. From vue I have done a HTTP connection to those api routes via AXIOS module, and after that i have managed the responses with promises. Also there is a lifecycle-hook included for listing the tasks once the component is initialized.
+
+
+# Instrucciones de instalacion - steps for installation
+
+(Español)
+
+1. Una vez que clones el repositorio y obtengas el proyecto, es necesario instalar las dependencias de Laravel (la carpeta vendor) mediante el comando composer install
+
+2. Ademas es necesario generar un nuevo archivo .env a partir del .env.example mediante el comando cp .env.example .env y seguidamente colocar los valores de conexion a nuestra base de datos (la cual habra que tener creada)
+
+3. el este paso se debe generar una nueva key para la aplicacion con el comando php artisan generate:key
+
+4. por ultimo, solo queda levantar el servidor con php artisan serve
+
+------------------------------------------------------------------------------------------------------------------------------
+
+(English)
+
+1. Once you clone the repository on your PC, it's necessary to install the Laravel dependencies with the command composer install (make sure you have composer installed on your machine).
+
+2. Also it's required to generate a new .env file by cloning the existing .env.example with the command cp .env.example .env and then put all the connection parameters to our local database (You must have a database or schema created)
+
+3. on this step you have to generate a new app key with the command php artisan generate:key in order to start the project
+
+4. finally you can start the local server with the command php artisan serve

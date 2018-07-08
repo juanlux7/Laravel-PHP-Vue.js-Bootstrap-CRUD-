@@ -58,4 +58,19 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Laravel-PHP-Vue.js-Bootstrap-CRUD-
+
+# Laravel-PHP-Vue.js-Bootstrap-CRUD (Explicacion del proyecto - Description of the project)
+
+(Español)
+Este es un proyecto creado mediante el framework PHP Laravel (5.6) y el uso de la libreria JavaScript Vue.js, ademas del framework HTML bootstrap 4.0 para maquetacion (grid) y uso de componentes. El proyecto consiste en una aplicacion simple de tareas, almacenadas en una Base de datos SQL (configurando el archivo .env en Laravel y creando el Schema en phpmyadmin), y gestionando las vistas mediante la herencia de plantillas blade de Laravel (uso de un template master y otro para desplegar tareas), ademas de la creacion de un componente Vue para realizar el CRUD de dichas tareas (mostrarlas, crearlas, borrarlas y editarlas). 
+
+(English)
+This is a project created with the PHP framework Laravel (5.6) and the Vue Javascript library, as well as the bootstrap 4 HTML framework for the grid and the basic components. The project consists in a simple task app, stored in a SQL database (through .env config file and creating a schema in phpmyadmin), and managing the views with template hierarchy thanks to blade (using a master layout and another for displaying the tasks), also i have used a Vue component to perform the CRUD operations (basically, show, create delete and update them).
+
+------------------------------------------------------------------------------------------------------------------------------
+
+(Español)
+Desde Laravel se han declarado rutas api que apuntan a un controller y a un metodo en especifico, el controller es de tipo resource y posee los metodos básicos de un CRUD. Desde Vue se ha realizado una conexion HTTP a las rutas api de laravel mediante el modulo AXIOS, posteriormente se han gestionado las respuestas mediante promises. Ademas se ha hecho uso de lifecycle-hooks para listar las tareas una vez este iniciado el componente. 
+
+(English)
+From Laravel I have declared some api routes that point to an controller and a specific method inside of it, that controller is a resource controller and it has the necessary methods of a CRUD. From vue I have done a HTTP connection to those api routes via AXIOS module, and after that i have managed the responses with promises. Also there is a lifecycle-hook included for listing the tasks once the component is initialized.

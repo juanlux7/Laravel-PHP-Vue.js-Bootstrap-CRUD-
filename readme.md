@@ -85,7 +85,9 @@ From Laravel I have declared some api routes that point to an controller and a s
 
 3. el este paso se debe generar una nueva key para la aplicacion con el comando php artisan generate:key
 
-4. por ultimo, solo queda levantar el servidor con php artisan serve
+4. asimismo, es necesario instalar las dependencias js con el comando npm install en la raiz del proyecto
+
+5. por ultimo, solo queda levantar el servidor con php artisan serve
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -97,4 +99,6 @@ From Laravel I have declared some api routes that point to an controller and a s
 
 3. on this step you have to generate a new app key with the command php artisan generate:key in order to start the project
 
-4. finally you can start the local server with the command php artisan serve
+4. At the same time, it is required to install the js dependencies with npm install in the root of the project
+
+5. finally you can start the local server with the command php artisan serve
